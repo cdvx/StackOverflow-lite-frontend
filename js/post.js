@@ -66,7 +66,7 @@ function signUp(){
             console.log(JSON.stringify(json));
             let subimt = document.getElementById('submit');
             if ("message" in json){
-                submit.href = '#';
+                // submit.href = '#';
                 alertMessage(json.message);
             }
             if ("success" in json){
