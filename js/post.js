@@ -18,9 +18,28 @@ let alertMessage = (message) => {
     setTimeout(() => alert.style.display = 'none', 6000);
 }
 
+function onSignUp(){
+    if (document.title == "StackOverflow-lite-signup"){
+        let submit = document.getElementById('submit');
+        submit.addEventListener('click', signup => {
+            signUp();
+        })
+    }
+}
+
+function onLogin(){
+    if (document.title == "StackOverflow-lite-login"){
+        let submit = document.getElementById('submit');
+        submit.addEventListener('click', signin => {
+            login();
+        })
+    }
+}
+
 
 function signUp(){
     // e.preventDefault();
+
     let username = document.getElementById('username').value;
         email = document.getElementById('email').value;
         password = document.getElementById('password').value;

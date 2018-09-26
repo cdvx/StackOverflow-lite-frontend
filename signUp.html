@@ -9,7 +9,7 @@
 		<title>StackOverflow-lite-signup</title>
 		<link rel="stylesheet" type="text/css" href="./css/signUp.css" />
 		<script src="./js/post.js"></script>
-	<body>
+	<body onload="onSignUp()">
 		<header>
 			<div class='container' id="container">
 				<div id="branding">
@@ -41,7 +41,8 @@
 						<p><h3>Repeat Password</h3><input id="repeat_password" type="password" value="" name="repeat_password" placeholder="Password" required="required"></p>
 
 						<div id="signUp">
-						<p><a id="submit" onclick="signUp()" >Sign Up</a></p>
+						<p><a id="submit"  >Sign Up</a></p>
+						<!-- onclick="signUp()" -->
 						<!-- <script>
 							function wrapSignUp(){
 

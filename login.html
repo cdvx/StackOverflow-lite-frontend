@@ -9,7 +9,7 @@
 		<title>StackOverflow-lite-login</title>
 		<link rel="stylesheet" type="text/css" href="./css/login.css" />
 		<script src="./js/post.js"></script>
-	<body>
+	<body onload="onLogin()">
 		<header>
 			<div class='container' id="container">
 				<div id="branding">
@@ -37,7 +37,8 @@
 
 							<p><h3>Password</h3><input id="password" name="password" type="password" placeholder="Enter Password"></p>
 							
-							<p><div id="butt"><a id="submit" onclick="login()">Log in</a></div></p>
+							<p><div id="butt"><a id="submit" >Log in</a></div></p>
+							<!-- onclick="login()" -->
 							<div id="container2">
 								<p><label class="contain"><h3>Remember me</h3>
 									<input id="remember" type="checkbox" checked="checked" >
