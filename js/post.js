@@ -79,7 +79,6 @@ function signUp(){
             }
         })
         .catch(error => console.log(error));
-        return 'OK'
     }
 
 
@@ -121,7 +120,7 @@ function login(){
             }
         })
         .catch(error => console.log(error));
-        return 'OK'
+        
     }
 
 function onProfileReady(){
