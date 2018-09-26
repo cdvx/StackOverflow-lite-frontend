@@ -23,6 +23,7 @@ function onSignUp(){
         let submit = document.getElementById('submit');
         submit.addEventListener('click', signup => {
             signUp();
+            window.location.replace('./login.html');
         })
     }
 }
@@ -71,7 +72,7 @@ function signUp(){
             }
             if ("success" in json){
                 alertMessage(json.success);
-                window.location.replace('./login.html');
+                // window.location.replace('./login.html');
                 console.log('this runs');
             }
         })
