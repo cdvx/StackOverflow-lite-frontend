@@ -23,7 +23,10 @@ function onSignUp(){
         let submit = document.getElementById('submit');
         submit.addEventListener('click', signup => {
             signUp();
-            window.location.replace('./login.html');
+            if (signUp() == 'OK'){
+                window.location.replace('./login.html');
+            }
+            // window.location.replace('./login.html');
         })
     }
 }
@@ -33,7 +36,10 @@ function onLogin(){
         let submit = document.getElementById('submit');
         submit.addEventListener('click', signin => {
             login();
-            window.location.replace('./home.html');
+            if (login() == 'OK'){
+                window.location.replace('./home.html');
+            }
+            
         })
     }
 }
@@ -68,7 +74,7 @@ function signUp(){
             console.log(JSON.stringify(json));
             let subimt = document.getElementById('submit');
             if ("message" in json){
-                // submit.href = '#';
+                submit.href = '#';
                 alertMessage(json.message);
             }
             if ("success" in json){
@@ -78,6 +84,7 @@ function signUp(){
             }
         })
         .catch(error => console.log(error));
+        return 'OK'
     }
 
 
@@ -117,6 +124,7 @@ function login(){
             }
         })
         .catch(error => console.log(error));
+        return 'OK'
     }
 
 function onProfileReady(){
