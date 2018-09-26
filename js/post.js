@@ -33,6 +33,7 @@ function onLogin(){
         let submit = document.getElementById('submit');
         submit.addEventListener('click', signin => {
             login();
+            window.location.replace('./home.html');
         })
     }
 }
@@ -111,7 +112,7 @@ function login(){
                 localStorage.setItem('access', json['access_token']);
                 localStorage.setItem('user', username);
                 // window.localStorage.setItem('qtn_author',QuestAuthor);
-                window.location.replace('./home.html');
+                
                 console.log('this runs');
             }
         })
