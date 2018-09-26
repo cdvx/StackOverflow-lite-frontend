@@ -23,10 +23,7 @@ function onSignUp(){
         let submit = document.getElementById('submit');
         submit.addEventListener('click', signup => {
             signUp();
-            if (signUp() == 'OK'){
-                window.location.replace('./login.html');
-            }
-            // window.location.replace('./login.html');
+            
         })
     }
 }
@@ -36,9 +33,7 @@ function onLogin(){
         let submit = document.getElementById('submit');
         submit.addEventListener('click', signin => {
             login();
-            if (login() == 'OK'){
-                window.location.replace('./home.html');
-            }
+            
             
         })
     }
@@ -79,7 +74,7 @@ function signUp(){
             }
             if ("success" in json){
                 alertMessage(json.success);
-                // window.location.replace('./login.html');
+                window.location.replace('./login.html');
                 console.log('this runs');
             }
         })
@@ -118,7 +113,9 @@ function login(){
                 console.log(json['access_token']);
                 localStorage.setItem('access', json['access_token']);
                 localStorage.setItem('user', username);
+                alertMessage("Processing request..")
                 // window.localStorage.setItem('qtn_author',QuestAuthor);
+                window.location.replace('./home.html');
                 
                 console.log('this runs');
             }
