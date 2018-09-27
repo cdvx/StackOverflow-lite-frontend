@@ -53,9 +53,6 @@ function onDocumentReady(){
                 S = document.getElementById('S');
                 console.log(Qtns, Qtn)
 
-            if (Array.from(json).length == 0 && "message" in json){
-                console.log(json.message);
-                Qtn.innerHTML = json.message;
                 usr = window.localStorage.getItem('user');
                 if(usr){
                     console.log(usr);
@@ -70,6 +67,10 @@ function onDocumentReady(){
                     S.style.display = 'list-item';
                     L.style.display = 'list-item';
                 }
+
+            if (Array.from(json).length == 0 && "message" in json){
+                console.log(json.message);
+                Qtn.innerHTML = json.message;
                 append(Qtns, Qtn);
             }
             if (Array.from(json).length == 0 && "questions" in json){
@@ -86,9 +87,6 @@ function onDocumentReady(){
                         a3 = createNode('a');
                         Qtn = createNode('p');
                         Qtns = document.getElementById('Qtns');
-                        // L = document.getElementById('L');
-                        // P = document.getElementById('P');
-                        // S = document.getElementById('S');
                         console.log('nav bar links assigned');
                         span4 = createNode('span');
                     
@@ -123,14 +121,10 @@ function onDocumentReady(){
                         let submit = document.getElementById('submit');
                             condition5 = window.localStorage.getItem('user') == qtn_author;
                             condition6 = window.localStorage.getItem('user') == null;
-                            // usr = window.localStorage.getItem('user');
-                        // console.log(usr);
 
                         console.log('cond 5', condition5);
                         if (!condition6 && condition5){
-                            L.style.display = 'none';
-                            S.style.display = 'none';
-                            P.style.display = 'list-item';
+
                             console.log('then this hsould run');
                             span.innerHTML = ` <strong>Author:</strong> ${question.author}`;
                             span2.innerHTML = `${question.body} <br>`;
@@ -150,9 +144,7 @@ function onDocumentReady(){
                         }
 
                         if (!condition5 || condition6){
-                            P.style.display = 'none';
-                            S.style.display = 'list-item';
-                            L.style.display = 'list-item';
+                            
                             console.log('this runs?');
                             span.innerHTML = ` <strong>Author:</strong> ${question.author}`;
                             span2.innerHTML = `${question.body} <br>`;

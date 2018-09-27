@@ -132,6 +132,8 @@ function onProfileReady(){
             AnsG = document.getElementById('AnsG');
             QnsG = document.getElementById('QnsG');
             logout = document.getElementById('logout');
+            userN = document.getElementById('username');
+        userN.innerHTML = user;
         logout.addEventListener('click', logouta => {
             window.localStorage.clear();
             window.location.replace('./home.html');
@@ -143,9 +145,11 @@ function onProfileReady(){
         .then(json => {
             let count = 0;
             if ('questions' in json){
-                let questions = json.questions
-                console.log(questions, questions.length);
+                
+                let qtns_count = 0;
+                    questions = json.questions;
                 for (let question of json.questions){
+                    qtns_count ++;
                     let qtns = [];
                     qtns.push(question);
                     fetch(`${url}/api/v1/questions/${question.questionId}/answers`, {
@@ -156,6 +160,7 @@ function onProfileReady(){
                         let count = 0;
                         if ('answers' in json){
                             for (let answer of json.answers){
+                                
                                 if (answer.author == user){
                                     count ++;
                                     let li = createNode('li');
@@ -177,12 +182,17 @@ function onProfileReady(){
                                 count = 0
                             li.innerHTML = json.message;
                             AnsG.innerHTML = `Number of answers given: ${count}`
-                            console.log(qtns.length == questions.length);
-                            if(qtns.length == questions.length -1){
-                                console.log(qtns.length);
-                                console.log(qtns);
+                            console.log(qtns_count , 'qtns now', questions.length);
+                            
+                            if(qtns_count == questions.length){
                                 append(Answered, li);
+                                // break;
                             }
+                            // if(qtns.length == questions.length -1){
+                            //     console.log(qtns.length);
+                            //     console.log(qtns);
+                            
+                            // }
                             
                         }
                     })
